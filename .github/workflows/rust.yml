@@ -1,0 +1,32 @@
+name: Rust
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      run: cargo build --verbose
+    - name: Run tests
+      run: cargo test --verbose
+    - name: Rust Release
+      uses: manoadamro/rust-release@028b5d008bac5437257ec3ec905b12aed11e766a
+      with:
+        owner: predictables
+        repo: predictables-rs
+        token: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDsf4ZG7noqIjGoEEZhhQ2ylZoGRs9XraizgcrVSC7fn6MdZZb2KQqWoIQgHpigN3DpBMeTSA87rZbA9HiBT1NxBNEHjEFMHLXE2lHNv8HtQQ7nJef95CX+ju36NpfbddmBGqY95k9l+R31Pa96VqWgflX6hX8TUp1IITnrBgr6iQSHf0b2wfACz1xsjTRFJwez1qNUdNazugB5ZsNewZzlXdgAbJjB+WtOp2Yq/6qDfPQ/od+RhSEd/fvS64bLxMGuf5LzWP+X4Isfbg/upetASOUr8ljYA9AAoaGEY/krIoH2IrP+pvmruWfhba8xoIHCrrNo1hysjYO0f0cYGYXmwT2TnExcEkTRJKMRqtyQOh+KiMtZ4W8cM5ue62d0hIVCGd+Oa/MqIyFHcrl3BGuq0KigTCoidDtWHgKaBVerpRmw17E3yukfKzCzZZmseLR6Q9EB683l0HvEZ9AuwGztwFSg1SGbhy999gnSiQYOkoeCiG8dw4l6HBkHvGHSReM= aweaver@Andy-Surface"
+        # Cargo.toml path
+        cargo: Cargo.toml
+        dry_run: false
+          
