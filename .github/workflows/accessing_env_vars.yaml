@@ -1,0 +1,34 @@
+name: Environment Variables
+env:
+  WORKSPACE_ENV: "workflow"
+  OVERRIDE: "yolo"
+on: [push]
+jobs:
+  ubuntu:
+    env:
+      JOB_ENV: "job"
+      OVERRIDE: "swag"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Environment Variables
+        env:
+          STEP_ENV: "step"
+          OVERRIDE: "yoloYOLO"
+        run: |
+          echo "Accessing environment variables using the shell"
+          echo "==============================================="
+          echo "GITHUB_ENV: $GITHUB_ENV"
+          echo "STEP_ENV: $STEP_ENV"
+          echo "WORKSPACE_ENV: $WORKSPACE_ENV"
+          echo "JOB_ENV: $JOB_ENV"
+          echo "OVERRIDE: $OVERRIDE"
+          echo ""
+          echo ""
+          echo "Accessing environment variables using yaml"
+          echo "==============================================="
+          echo "GITHUB_ENV: ${{ env.GITHUB_ENV }}"
+          echo "STEP_ENV: ${{ env.STEP_ENV }}"
+          echo "WORKSPACE_ENV: ${{ env.WORKSPACE_ENV }}"
+          echo "JOB_ENV: ${{ env.JOB_ENV }}"
+          echo "OVERRIDE: ${{ env.OVERRIDE }}"
+          
