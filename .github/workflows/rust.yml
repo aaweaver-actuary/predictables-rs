@@ -21,7 +21,7 @@ jobs:
       - name: Rust Release
         uses: manoadamro/rust-release@028b5d008bac5437257ec3ec905b12aed11e766a
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ env.AAWEAVER_ACTUARY_AUTH }}
           owner: predictables
           repo: predictables-rs 
           # Cargo.toml path
