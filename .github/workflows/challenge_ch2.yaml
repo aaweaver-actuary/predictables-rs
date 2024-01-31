@@ -1,0 +1,40 @@
+name: challenge ch2
+
+on: push
+
+jobs:
+    job1:
+        name: challenge ch2 - linux
+        runs-on: ubuntu-latest
+        steps:
+            - name: challenge ch2 - linux
+              uses: actions/checkout@v2
+            - name: print date
+              run: echo "Hello World - the time is now $GITHUB_RUN_NUMBER"
+    job2:
+        name: challenge ch2 - windows
+        runs-on: windows-latest
+        steps:
+            - name: challenge ch2 - windows
+              uses: actions/checkout@v2
+            - name: print date
+              run: echo "Hello World - the time is now $GITHUB_RUN_NUMBER"
+
+    job3:
+        name: challenge ch2 - macos
+        runs-on: macos-latest
+        steps:
+            - name: challenge ch2 - macos
+              uses: actions/checkout@v2
+            - name: print date
+              run: echo "Hello World - the time is now $GITHUB_RUN_NUMBER"
+                  
+    job4:
+        name: job4 - dependency on 1, 2, 3
+        runs-on: ubuntu-latest
+        needs: [job1, job2, job3]
+        steps:
+            - name: job4 - dependency on 1, 2, 3
+              uses: actions/checkout@v2
+            - name: print date
+              run: echo "Hello World - the time is now $GITHUB_RUN_NUMBER"
