@@ -1,0 +1,21 @@
+# push trigger
+# env variable for artifact name
+# one job, 2 steps
+#  actions/checkout@v2
+#  actions/upload-artifact@v2 
+
+name: Workflow with artifact
+env:
+  ARTIFACT_NAME: my-artifact
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ env.ARTIFACT_NAME }}
+          path: ./hello.txts
