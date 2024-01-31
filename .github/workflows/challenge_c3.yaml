@@ -14,8 +14,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Create artifact
+        run: |
+          echo "Hello, world!" > hello.txt
+          echo "Hello, world!" > hello.txts
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: ${{ env.ARTIFACT_NAME }}
-          path: ./hello.txts
+          path: ./hello.txt
