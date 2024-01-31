@@ -9,6 +9,10 @@ jobs:
   build-linux:
     runs-on: ubuntu-latest
     steps:
+      - name: Get directory structure
+        run: ls -R
+      - name: Get environment
+        run: printenv
       - uses: actions/checkout@v3
       - name: Build
         run: cargo build --verbose
@@ -45,6 +49,11 @@ jobs:
   build-windows:
     runs-on: windows-latest
     steps: 
+      - name: Get directory structure
+        run: Get-ChildItem -Recurse
+      - name: Get environment
+        run: |
+          Get-ChildItem Env:
       - uses: actions/checkout@v3
       - name: Install Rust
         uses: actions-rs/toolchain@v1
@@ -84,6 +93,10 @@ jobs:
   build-macos:
     runs-on: macos-latest
     steps:
+      - name: Get directory structure
+        run: ls -R
+      - name: Get environment
+        run: printenv
       - uses: actions/checkout@v3
       - name: Install Rust
         uses: actions-rs/toolchain@v1
