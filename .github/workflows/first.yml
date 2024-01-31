@@ -1,0 +1,35 @@
+name: first
+
+on: push
+
+jobs:
+    linux: 
+        name: Linux release
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Step One"
+              uses: actions/checkout@v2
+
+            - name: "Step Two"
+              run: env | sort
+              
+    windows:
+        name: Windows release
+        runs-on: windows-latest
+        steps:
+            - name: "Step One"
+              uses: actions/checkout@v2
+
+            - name: "Step Two"
+              run: "Get-ChildItem Env: | Sort-Object Name"
+              
+    macos:
+        name: Mac release
+        runs-on: macos-latest
+        steps:
+            - name: "Step One"
+              uses: actions/checkout@v2
+
+            - name: "Step Two"
+              run: env | sort
+              
