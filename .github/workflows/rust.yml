@@ -1,32 +1,28 @@
-name: Rust
-
 on:
   push:
-    branches: [ "main" ]
+    branches: main
   pull_request:
-    branches: [ "main" ]
+    branches: main
 
 env:
   CARGO_TERM_COLOR: always
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build
-      run: cargo build --verbose
-    - name: Run tests
-      run: cargo test --verbose
-    - name: Rust Release
-      uses: manoadamro/rust-release@028b5d008bac5437257ec3ec905b12aed11e766a
-      with:
-        owner: predictables
-        repo: predictables-rs
-        token: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDsf4ZG7noqIjGoEEZhhQ2ylZoGRs9XraizgcrVSC7fn6MdZZb2KQqWoIQgHpigN3DpBMeTSA87rZbA9HiBT1NxBNEHjEFMHLXE2lHNv8HtQQ7nJef95CX+ju36NpfbddmBGqY95k9l+R31Pa96VqWgflX6hX8TUp1IITnrBgr6iQSHf0b2wfACz1xsjTRFJwez1qNUdNazugB5ZsNewZzlXdgAbJjB+WtOp2Yq/6qDfPQ/od+RhSEd/fvS64bLxMGuf5LzWP+X4Isfbg/upetASOUr8ljYA9AAoaGEY/krIoH2IrP+pvmruWfhba8xoIHCrrNo1hysjYO0f0cYGYXmwT2TnExcEkTRJKMRqtyQOh+KiMtZ4W8cM5ue62d0hIVCGd+Oa/MqIyFHcrl3BGuq0KigTCoidDtWHgKaBVerpRmw17E3yukfKzCzZZmseLR6Q9EB683l0HvEZ9AuwGztwFSg1SGbhy999gnSiQYOkoeCiG8dw4l6HBkHvGHSReM= aweaver@Andy-Surface"
-        # Cargo.toml path
-        cargo: Cargo.toml
-        dry_run: false
-          
+      - uses: actions/checkout@v3
+      - name: Build
+        run: cargo build --verbose
+      - name: Run tests
+        run: cargo test --verbose
+      - name: Rust Release
+        uses: manoadamro/rust-release@028b5d008bac5437257ec3ec905b12aed11e766a
+        with:
+          owner: predictables
+          repo: predictables-rs
+          token: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDF7wcj1jXwlzoAvH8yce0DlupN04CNP4kevrFniQooPcSsfyTfHeJa9ephTl3iQ2+7t415NVrGfHPG5lG99aJ1t70EWQXMg2DVOEMIqCQHCTHezsoZq6I3KuOzyoEPQ2fqZsyHWpfWJn3nicmMH7W11nOJTa2Ywa/G0g0vLX8z2Wv8va1/LK08F0l81ActZejkWZn68JjyRyB2uU4/pnHsZAkGHvubQyHTN0IAB3cUAuNqZ4JEPyNiSBRsv9wkJIGTq96NzXG8LW2YStcz+3DpGTz7mGSLH0etXlMIKXzA8sZLphUMdtfMntfdSEcnRBtaOlSlRVJlTQcnfCQYC/kWPP16qNZvw9Et82om6wV74Aqfe8B5dbJZdXIEt8qz6PpDCySQTYnyFHVonOgUiy2S58ZATUV2H2ht8fAg6XyM0fze26EQCawphpg+1qqxr4YOKaVeB8u0bislmmn9WzC0w/srX+ikYG6b8l9jme8vNDKBIbsEXCx6AF2hqDHxgP8= aweaver@Andy-Surface
+          # Cargo.toml path
+          cargo: Cargo.toml
+          dry_run: false
