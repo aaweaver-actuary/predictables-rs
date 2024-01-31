@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
-name = "pareto_sort"
+name = "predictables_rs"
 crate-type = ["cdylib"]
 
 [dependencies]
